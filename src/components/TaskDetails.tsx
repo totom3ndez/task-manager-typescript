@@ -31,6 +31,21 @@ const TaskDetails = () => {
     }
   };
 
+  const handleCancel = () => {
+    navigate('/');
+  }
+
+  const handleDelete = () => {
+    if (
+      window.confirm('Are you sure you want to delete this task?')
+    ) {
+      taskStore.setState((state) => ({ tasks: state.tasks.filter(task => task.id !== selectedTask?.id) }));
+      navigate('/');
+    } else {
+      navigate('/');
+    }
+  }
+
 
   return (
     <form onSubmit={handleSave}>
@@ -100,7 +115,9 @@ const TaskDetails = () => {
           minLength={5}
         />
       </label>
-      <Button color="p-2 rounded-xl bg-green-500 w-full mt-4" children='Save' type="submit" />
+      <Button color="p-2 rounded-xl bg-green-500 w-full mt-4" type="submit">Save</Button>
+      <Button color="p-2 rounded-xl bg-red-500 w-full mt-4" type="submit" onClick={handleDelete}>Delete</Button>
+      <Button color="p-2 rounded-xl bg-gray-500 w-full mt-4" type="button" onClick={handleCancel}>Cancel</Button>
     </form>
   );
 };
