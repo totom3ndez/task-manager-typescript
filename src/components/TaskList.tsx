@@ -1,4 +1,4 @@
-import {taskStore} from "../taskStore";
+import { taskStore } from "../taskStore";
 import { useNavigate } from "react-router-dom";
 
 import TaskItem from "./TaskItem";
@@ -10,13 +10,17 @@ const TaskList = () => {
   return (
     <div >
       <ul className="flex flex-col gap-4">
-      {
-        tasks.map(task => (
-          <li key={task.id} onClick={() => selectTask(task, navigate)}>
-            <TaskItem  task={task}/>
-          </li>
-        ))
-      }
+        {
+          tasks.length === 0 ? (
+            <p className="text-center text-2xl">No tasks available</p>
+          ) : (
+            tasks.map(task => (
+              <li key={task.id} onClick={() => selectTask(task, navigate)}>
+                <TaskItem task={task} />
+              </li>
+            ))
+          )
+        }
       </ul>
     </div>
   )
