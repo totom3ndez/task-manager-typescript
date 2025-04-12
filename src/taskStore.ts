@@ -17,7 +17,7 @@ const Tasks = [{
     title: 'Task 1',
     description: 'Description 1',
     author: 'Author 1',
-    isDone: false,
+    isDone: true,
     priority: 'low',
     id: crypto.randomUUID().slice(0, 8),
     date: new Date().toLocaleDateString(),
