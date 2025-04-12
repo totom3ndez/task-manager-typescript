@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { taskStore } from '../taskStore'
 import { useNavigate } from 'react-router-dom'
+import Button from './Button';
 
 const CreateTask = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const CreateTask = () => {
         Autor
         <input className='p-2 border-2 rounded-xl' type="text" name='author' onChange={handleChange} required minLength={5} />
       </label>
-      <button type="submit">Create</button>
+      <Button color='bg-green-500' type="submit">Create</Button>
     </form>
   )
 }
