@@ -11,14 +11,17 @@ const TaskList = () => {
     <div >
       <ul className="flex flex-col gap-4">
         {
-          tasks.length === 0 ? (
-            <p className="text-center text-2xl">No tasks available</p>
+          tasks.filter(task => !task.isDone).length === 0 ? (
+            <>
+              <p className="text-center text-2xl mt-4">No tasks available.</p>
+            </>
           ) : (
-            tasks.map(task => (
+            tasks.filter(task => !task.isDone).map((task) => (
               <li key={task.id} onClick={() => selectTask(task, navigate)}>
                 <TaskItem task={task} />
               </li>
-            ))
+            )
+            )
           )
         }
       </ul>
