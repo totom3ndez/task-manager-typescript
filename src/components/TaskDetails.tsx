@@ -115,6 +115,17 @@ const TaskDetails = () => {
           minLength={5}
         />
       </label>
+      <div className="flex gap-4 p-4 text-xl items-center justify-center">
+        Is done?
+        <input
+          type="checkbox"
+          name="isDone"
+          id="isDone"
+          checked={taskDetails.isDone}
+          className="w-4 h-4"
+          onChange={(e) => setTaskDetails((prev) => ({ ...prev, isDone: e.target.checked }))}
+        />
+      </div>
       <Button color="p-2 rounded-xl bg-green-500 w-full mt-4" type="submit">Save</Button>
       <Button color="p-2 rounded-xl bg-red-500 w-full mt-4" type="submit" onClick={handleDelete}>Delete</Button>
       <Button color="p-2 rounded-xl bg-gray-500 w-full mt-4" type="button" onClick={handleCancel}>Cancel</Button>
