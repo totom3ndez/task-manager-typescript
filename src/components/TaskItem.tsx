@@ -7,7 +7,7 @@ import { TaskInterface } from "../taskStore";
 const TaskItem = ({ task }: { task: TaskInterface }) => {
   return (
     <div
-      className={`px-4 py-2 mx-4 rounded-lg bg-[#202020] border-l-10 ${task.priority === 'high'
+      className={`relative px-4 py-2 mx-4 rounded-lg bg-[#202020] border-l-10 ${task.priority === 'high'
         ? 'border-red-500'
         : task.priority === 'medium'
           ? 'border-yellow-500'
@@ -28,6 +28,11 @@ const TaskItem = ({ task }: { task: TaskInterface }) => {
           <CiCalendar /> {task.date} <span className="text-xs text-gray-500">{task.time}</span>
         </p>
       </div>
+      <p className="absolute top-4 right-4 font-light">
+        <span className={`text-xs ${task.isDone ? 'text-green-500' : 'text-red-500'}`}>
+          {task.isDone ? 'Completed' : 'Pending'}
+        </span>
+      </p>
     </div>
   )
 }
