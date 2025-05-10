@@ -1,7 +1,7 @@
-import CreateTask from "./components/CreateTask";
-import Home from './components/Home'
-import TaskDetails from "./components/TaskDetails";
-import Layout from "./Layout/Layout";
+import CreateTask from "./actions/CreateTask";
+import Home from './pages/Home'
+import TaskDetails from "./tasks/components/TaskDetails";
+import Layout from "./layouts/Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
