@@ -2,14 +2,16 @@ import { useState } from 'react'
 import { taskStore } from '../taskStore'
 import { useNavigate } from 'react-router-dom'
 import Button from '../globals/components/Button';
+import { useUser } from '@clerk/clerk-react';
 
 const CreateTask = () => {
+  const { user } = useUser();
   const navigate = useNavigate();
 
   const [data, setData] = useState({
     title: '',
     description: '',
-    author: '',
+    author: user?.fullName || '',
     isDone: false,
     priority: "low",
     id: crypto.randomUUID().slice(0, 8),
@@ -49,10 +51,6 @@ const CreateTask = () => {
         <input type="radio" name="priority" id="medium" value='medium' onChange={handleChange} />
         <label htmlFor="high">High</label>
         <input type="radio" name="priority" id="high" value='high' onChange={handleChange} />
-      </label>
-      <label className='flex flex-col gap-2' htmlFor="author">
-        Autor
-        <input className='p-2 border-2 rounded-xl' type="text" name='author' onChange={handleChange} required minLength={5} />
       </label>
       <Button color='bg-green-500' type="submit">Create</Button>
     </form>
