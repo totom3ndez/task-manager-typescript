@@ -7,10 +7,26 @@ export interface TaskInterface {
     description: string;
     author: string;
     isDone: boolean;
-    priority: string;
+    priority: 'low' | 'medium' | 'high';
     id: string;
     date: string;
     time: string;
+    dueDate?: Date;      // Fecha límite opcional
+    tags?: string[];     // Tags opcionales
+    category?: string;   // Categoría opcional
+}
+
+export interface NewTask {
+    title: string;
+    description: string;
+    author: string;
+    priority: 'low' | 'medium' | 'high';
+}
+
+export interface Task extends NewTask {
+    readonly id: string;
+    isDone: boolean;
+    createdAt: Date;
 }
 
 const Tasks = [
