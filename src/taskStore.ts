@@ -7,7 +7,7 @@ export interface TaskInterface {
     description: string;
     author: string;
     isDone: boolean;
-    priority: 'low' | 'medium' | 'high';
+    priority?: string;
     id: string;
     date: string;
     time: string;
@@ -20,7 +20,7 @@ export interface NewTask {
     title: string;
     description: string;
     author: string;
-    priority: 'low' | 'medium' | 'high';
+    priority?: string;
 }
 
 export interface Task extends NewTask {

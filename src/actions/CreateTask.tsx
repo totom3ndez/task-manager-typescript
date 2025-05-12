@@ -11,7 +11,7 @@ const CreateTask = () => {
     description: '',
     author: '',
     isDone: false,
-    priority: 'low',
+    priority: "low",
     id: crypto.randomUUID().slice(0, 8),
     date: new Date().toLocaleDateString(),
     time: new Date().toLocaleTimeString()
