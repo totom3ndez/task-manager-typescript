@@ -29,6 +29,14 @@ export interface Task extends NewTask {
     createdAt: Date;
 }
 
+interface TaskStoreState {
+    tasks: TaskInterface[];
+    selectedTask: TaskInterface | null;
+    selectTask: (task: TaskInterface, navigate: (path: string) => void) => void;
+    createTask: (task: TaskInterface) => void;
+    updateTask: (updatedTask: TaskInterface) => void;
+}
+
 const Tasks = [
     {
         title: 'Task 1',
@@ -95,13 +103,6 @@ const Tasks = [
     }
 ]
 
-interface TaskStoreState {
-    tasks: TaskInterface[];
-    selectedTask: TaskInterface | null;
-    selectTask: (task: TaskInterface, navigate: (path: string) => void) => void;
-    createTask: (task: TaskInterface) => void;
-    updateTask: (updatedTask: TaskInterface) => void;
-}
 
 export const taskStore = create<TaskStoreState>((set) => ({
     // states
