@@ -7,7 +7,7 @@ interface ButtonProps {
 }
 
 
-const Button = ({ onClick, children, color, type }: ButtonProps) => {
+const Button = ({ onClick, children, color, type = 'button' }: ButtonProps & { type?: 'submit' | 'reset' | 'button' }) => {
   return (
     <button
       onClick={onClick}
