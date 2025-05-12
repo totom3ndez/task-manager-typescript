@@ -2,8 +2,10 @@ import { taskStore } from "../../taskStore";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../globals/components/Button";
+import { useUser } from "@clerk/clerk-react";
 
 const TaskDetails = () => {
+  const { user } = useUser();
   const navigate = useNavigate();
   const selectedTask = taskStore((state) => state.selectedTask);
   const updateTask = taskStore((state) => state.updateTask);
@@ -18,7 +20,7 @@ const TaskDetails = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setTaskDetails((prev) => ({ ...prev, [name]: value, time: new Date().toLocaleTimeString() }));
+    setTaskDetails((prev) => ({ ...prev, [name]: value, time: new Date().toLocaleTimeString(), author: user?.fullName || "Unknown" }));
   };
 
   const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
@@ -103,18 +105,6 @@ const TaskDetails = () => {
           checked={taskDetails.priority === "high"}
         />
       </div>
-      <label className='flex flex-col gap-2' htmlFor="author">
-        Autor
-        <input
-          className='p-2 border-2 rounded-xl'
-          type="text"
-          name="author"
-          value={taskDetails.author}
-          onChange={handleChange}
-          required
-          minLength={5}
-        />
-      </label>
       <div className="flex gap-4 p-4 text-xl items-center justify-center">
         Is done?
         <input
