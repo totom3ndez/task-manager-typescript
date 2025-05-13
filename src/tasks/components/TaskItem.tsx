@@ -7,7 +7,7 @@ import { TaskInterface } from "../../taskStore";
 const TaskItem = ({ task }: { task: TaskInterface }) => {
   return (
     <div
-      className={`cursor-pointer relative px-4 py-2 mx-4 rounded-lg bg-[#202020] border-l-10 ${task.priority === 'high'
+      className={`w-full cursor-pointer relative px-4 py-2 rounded-lg bg-[#202020] border-l-10 ${task.priority === 'high'
         ? 'border-red-500'
         : task.priority === 'medium'
           ? 'border-yellow-500'
@@ -17,10 +17,10 @@ const TaskItem = ({ task }: { task: TaskInterface }) => {
       <h3 className="flex gap-2 items-center text-xl">
         <MdTask /> {task.title}
       </h3>
-      <p className="flex gap-2 items-center font-light">
+      <p className="flex gap-2 items-center font-light w-full">
         <BsListTask /> {task.description}
       </p>
-      <div className="flex gap-2">
+      <div className="flex flex-col gap-2">
         <p className="flex gap-2 items-center font-light">
           <IoPerson /> {task.author}
         </p>
