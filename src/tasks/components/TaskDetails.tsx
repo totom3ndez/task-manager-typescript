@@ -26,7 +26,8 @@ const TaskDetails = () => {
   const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (taskDetails.title && taskDetails.description) {
-      updateTask(taskDetails);
+      const updatedTask = { ...taskDetails, author: user?.fullName || "Unknown", time: new Date().toLocaleTimeString(), date: new Date().toLocaleDateString() };
+      updateTask(updatedTask);
       navigate('/');
     } else {
       alert('Please fill in all required fields.');
@@ -50,7 +51,7 @@ const TaskDetails = () => {
 
 
   return (
-    <form onSubmit={handleSave}>
+    <form onSubmit={handleSave} className="p-4">
       <label className='flex flex-col gap-4' htmlFor="title">
         Title
         <input
@@ -73,6 +74,7 @@ const TaskDetails = () => {
           onChange={handleChange}
           required
           minLength={5}
+          maxLength={100}
         />
       </label>
       Priority
