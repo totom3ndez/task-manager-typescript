@@ -14,15 +14,15 @@ const TaskList = () => {
 
   function filteredTask(filter: string) {
     return (
-      <ul className="grid grid-cols-1 gap-4">
+      <ul className="grid grid-cols-1 gap-4 mx-auto">
         {
           tasks.length == 0 ? <p className="text-xl text-center">No task found</p> :
             tasks
               .sort((a, b) => {
-                const priorityOrder: Record<Priority, number> = { 
-                    high: 1, 
-                    medium: 2, 
-                    low: 3 
+                const priorityOrder: Record<Priority, number> = {
+                  high: 1,
+                  medium: 2,
+                  low: 3
                 };
                 return priorityOrder[a.priority as Priority] - priorityOrder[b.priority as Priority];
               })
