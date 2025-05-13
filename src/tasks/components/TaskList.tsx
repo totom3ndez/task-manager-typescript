@@ -14,7 +14,7 @@ const TaskList = () => {
 
   function filteredTask(filter: string) {
     return (
-      <ul className="grid grid-cols-1 gap-4 mx-auto">
+      <ul className="grid grid-cols-1 gap-4 mx-auto w-full">
         {
           tasks.length == 0 ? <p className="text-xl text-center">No task found</p> :
             tasks
