@@ -8,6 +8,10 @@ const CreateTask = () => {
   const { user } = useUser();
   const navigate = useNavigate();
 
+  const handleCancel = () => {
+    navigate('/');
+  }
+
   const [data, setData] = useState({
     title: '',
     description: '',
@@ -41,7 +45,7 @@ const CreateTask = () => {
       </label>
       <label className='flex flex-col gap-2' htmlFor="description">
         Description
-        <input className='p-2 border-2 rounded-xl' type="text" name='description' onChange={handleChange} required minLength={5} />
+        <input className='p-2 border-2 rounded-xl' type="text" name='description' onChange={handleChange} required minLength={5} maxLength={100} />
       </label>
       Priority
       <label className='flex gap-2 justify-around' htmlFor="priority">
@@ -52,7 +56,8 @@ const CreateTask = () => {
         <label htmlFor="high">High</label>
         <input type="radio" name="priority" id="high" value='high' onChange={handleChange} />
       </label>
-      <Button color='bg-green-500' type="submit">Create</Button>
+      <Button color='bg-green-500 rounded-xl' type="submit">Create</Button>
+      <Button color="p-2 rounded-xl bg-gray-500 w-full mt-4" type="button" onClick={handleCancel}>Cancel</Button>
     </form>
   )
 }
