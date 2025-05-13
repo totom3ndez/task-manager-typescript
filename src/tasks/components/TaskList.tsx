@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import TaskItem from "./TaskItem";
 import { useState } from "react";
 
+type Priority = 'high' | 'medium' | 'low';
+
 const TaskList = () => {
   const navigate = useNavigate()
   const tasks = taskStore((state) => state.tasks)
@@ -17,8 +19,12 @@ const TaskList = () => {
           tasks.length == 0 ? <p className="text-xl text-center">No task found</p> :
             tasks
               .sort((a, b) => {
-                const priorityOrder: Record<'high' | 'medium' | 'low', number> = { high: 1, medium: 2, low: 3 };
-                return priorityOrder[a.priority as keyof typeof priorityOrder] - priorityOrder[b.priority as keyof typeof priorityOrder];
+                const priorityOrder: Record<Priority, number> = { 
+                    high: 1, 
+                    medium: 2, 
+                    low: 3 
+                };
+                return priorityOrder[a.priority as Priority] - priorityOrder[b.priority as Priority];
               })
               .map((task) =>
                 ((task.priority === filter || filter === '') && !task.isDone) ? (
