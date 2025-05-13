@@ -8,11 +8,9 @@ const Home = () => {
     <>
       <div className='flex gap-4 justify-center'>
         <SignedIn>
-          <div className='flex flex-col justify-center items-center'>
-            <div>
-              <TaskList />
-              <TaskHistory />
-            </div>
+          <div className='flex flex-col justify-center items-center w-full p-4'>
+            <TaskList />
+            <TaskHistory />
           </div>
         </SignedIn>
         <SignedOut>
