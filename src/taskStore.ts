@@ -1,6 +1,5 @@
 import { create } from "zustand";
 
-// Hardcoded tasks
 
 export interface TaskInterface {
     title: string;
