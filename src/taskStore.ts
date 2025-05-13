@@ -39,7 +39,7 @@ interface TaskStoreState {
 
 const Tasks = [
     {
-        title: 'Task 1',
+        title: 'Task 4',
         description: 'Description 1',
         author: 'Author 1',
         isDone: true,
@@ -49,28 +49,7 @@ const Tasks = [
         time: new Date().toLocaleTimeString()
     },
     {
-        title: 'Task 2',
-        description: 'Description 2',
-        author: 'Author 2',
-        isDone: false,
-        priority: 'low',
-        id: crypto.randomUUID().slice(0, 8),
-        date: new Date().toLocaleDateString(),
-        time: new Date().toLocaleTimeString()
-    },
-    {
-        title: 'Task 3',
-        description: 'Description 3',
-        author: 'Author 3',
-        isDone: false,
-        priority: 'low',
-        id: crypto.randomUUID().slice(0, 8),
-        date: new Date().toLocaleDateString(),
-        time: new Date().toLocaleTimeString()
-    }
-    ,
-    {
-        title: 'Task 4',
+        title: 'Task 1',
         description: 'Description 4',
         author: 'Author 4',
         isDone: false,
@@ -81,22 +60,22 @@ const Tasks = [
     }
     ,
     {
-        title: 'Task 5',
+        title: 'Task 2',
         description: 'Description 5',
         author: 'Author 5',
         isDone: false,
-        priority: 'high',
+        priority: 'medium',
         id: crypto.randomUUID().slice(0, 8),
         date: new Date().toLocaleDateString(),
         time: new Date().toLocaleTimeString()
     }
     ,
     {
-        title: 'Task 6',
+        title: 'Task 3',
         description: 'Description 6',
         author: 'Author 6',
         isDone: false,
-        priority: 'medium',
+        priority: 'low',
         id: crypto.randomUUID().slice(0, 8),
         date: new Date().toLocaleDateString(),
         time: new Date().toLocaleTimeString()
