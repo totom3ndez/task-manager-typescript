@@ -16,8 +16,8 @@ const TaskHistory = () => {
 
 
   return (
-    <div >
-      <ul className="flex flex-col gap-4">
+    <>
+      <ul className="flex flex-col gap-4 w-full">
         <hr className="mt-6 mx-auto w-3/4 text-blue-500 border-2 rounded-3xl" />
         <div className="items-center select-none">
           <h2 className="text-center text-3xl mb-6">Completed tasks <span onClick={handleClick} className="text-xl font-bold cursor-pointer">{IsOpen ? '➕' : '➖'}</span></h2>
@@ -39,7 +39,7 @@ const TaskHistory = () => {
           }
         </div>
       </ul>
-    </div>
+    </>
   )
 }
 
