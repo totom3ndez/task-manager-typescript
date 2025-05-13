@@ -19,7 +19,13 @@ const Home = () => {
             </div>
           </SignedIn>
           <SignedOut>
-            <SignInButton mode="modal">Sign In</SignInButton>
+            <div className='items-center flex gap-2'>
+              <p>Hello guest 👋, please </p>
+              <div className='p-2 bg-blue-700 rounded-xl text-white cursor-pointer'>
+                <SignInButton mode="modal">Sign in</SignInButton>
+              </div>
+              <p> to use the app.</p>
+            </div>
           </SignedOut>
         </div>
       </div>
